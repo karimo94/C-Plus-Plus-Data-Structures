@@ -1,0 +1,75 @@
+# depslib dependency file v1.0
+1403042074 source:e:\codeblocks-ep\projects\data structures\linked list.cpp
+	<iostream>
+	<fstream>
+	<stdio.h>
+	<math.h>
+
+1399605646 source:e:\codeblocks-ep\projects\data structures\stack.cpp
+	<iostream>
+	<fstream>
+	<stdio.h>
+	<math.h>
+
+1399605646 e:\codeblocks-ep\projects\data structures\stack.cpp
+	<iostream>
+	<fstream>
+	<stdio.h>
+	<math.h>
+
+1402968612 e:\codeblocks-ep\projects\data structures\queue.cpp
+	<iostream>
+	<fstream>
+	<stdio.h>
+	<math.h>
+
+1403041722 e:\codeblocks-ep\projects\data structures\demo.cpp
+	<iostream>
+	<fstream>
+	<math.h>
+	<stdio.h>
+	<string>
+
+1403574752 e:\codeblocks-ep\projects\data structures\binary search tree.cpp
+	<iostream>
+	<fstream>
+	<math.h>
+	<stdio.h>
+	<string>
+
+1403574752 source:e:\codeblocks-ep\projects\data structures\binary search tree.cpp
+	<iostream>
+	<fstream>
+	<math.h>
+	<stdio.h>
+	<string>
+
+1403575386 source:e:\codeblocks-ep\projects\data structures\main.cpp
+	<iostream>
+	<fstream>
+	<stdio.h>
+	<math.h>
+	"Linked List.cpp"
+	"Stack.cpp"
+	"Queue.cpp"
+	"Binary Search Tree.cpp"
+	"Doubly Linked List.cpp"
+
+1403042074 e:\codeblocks-ep\projects\data structures\linked list.cpp
+	<iostream>
+	<fstream>
+	<stdio.h>
+	<math.h>
+
+1403575356 source:e:\codeblocks-ep\projects\data structures\doubly linked list.cpp
+	<iostream>
+	<fstream>
+	<stdio.h>
+	<math.h>
+
+1403575356 e:\codeblocks-ep\projects\data structures\doubly linked list.cpp
+	<iostream>
+	<fstream>
+	<stdio.h>
+	<math.h>
+

@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <math.h>
 using namespace std;
+//Stack in C++
+//Written by: Karim Oumghar
 class Stack
 {
     class Node

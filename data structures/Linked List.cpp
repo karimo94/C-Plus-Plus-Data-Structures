@@ -5,7 +5,8 @@
 #include <math.h>
 
 using namespace std;
-
+//Linked List in C++
+//Written by: Karim Oumghar
 class Node
 {
 public:

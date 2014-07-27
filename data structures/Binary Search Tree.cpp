@@ -6,7 +6,8 @@
 
 using namespace std;
 
-
+//BST in C++
+//Written by: Karim Oumghar
 class BST
 {
 	class Node

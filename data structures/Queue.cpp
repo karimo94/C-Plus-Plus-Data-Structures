@@ -4,6 +4,8 @@
 #include <math.h>
 
 using namespace std;
+//Queue in C++
+//Written by: Karim Oumghar
 class Queue
 {
     class Node

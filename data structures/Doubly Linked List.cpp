@@ -4,7 +4,8 @@
 #include <math.h>
 
 using namespace std;
-
+//Doubly Linked list in C++
+//Written by: Karim Oumghar
 class Doubly_Linked_List
 {
     class Node

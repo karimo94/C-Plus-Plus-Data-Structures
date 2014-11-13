@@ -301,7 +301,7 @@ private:
         }
         return 0;
 	};
-	Node* GoToTarget(int data)//this will go to the target node, and return that node, problem here...
+	Node* GoToTarget(int data)//this will go to the target node, and return that node
 	{
 		Node* current = root;
 		Node* target = NULL;

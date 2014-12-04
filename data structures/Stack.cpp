@@ -18,6 +18,7 @@ class Stack
                 this->data = data;
                 next = NULL;
             };
+            ~Node();//destructor
     };
     //implement the stack class here using linked lists
     /*make this non visible to anything outside,
@@ -32,6 +33,7 @@ class Stack
         topOfStack = NULL;
         itemCount = 0;
     }
+    ~Stack();//destructor
     void Push(int data)
     {
         Node *newObject = new Node(data);

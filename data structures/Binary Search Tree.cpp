@@ -23,6 +23,7 @@ class BST
 			this->left = NULL;
 			this->right = NULL;
 		};
+		~Node();//destructor
 	};
 	private:
 	Node *root;

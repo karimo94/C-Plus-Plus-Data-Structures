@@ -18,6 +18,7 @@ public:
         this->data = data;
         next = NULL;
     };
+    ~Node();//destructor
 };
 
 class LinkedList
@@ -36,6 +37,7 @@ class LinkedList
             last = NULL;
             count = 0;
         };
+        ~LinkedList();//destructor
         void AddItem(int data)
         {
             Node *newItem = new Node(data);

@@ -33,6 +33,7 @@ class BST
 		root = NULL;
 		itemCount = 0;
 	}
+	~BST();//destructor
 public:
 	void Add(int data)//Add recursively
 	{

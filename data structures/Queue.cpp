@@ -18,7 +18,7 @@ class Queue
             this->data = data;
             next = NULL;
         }
-        ~Node();//destructor
+        ~Node(void){};//destructor
     };
     private:
         Node* front;
@@ -30,7 +30,7 @@ class Queue
             front = NULL;
             end = NULL;
         }
-        ~Queue();//destructor
+        ~Queue(void){};//destructor
         bool isEmpty()
         {
             if(front == NULL)

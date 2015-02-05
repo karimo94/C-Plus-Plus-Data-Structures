@@ -57,49 +57,59 @@ class LinkedList
         void RemoveItem(int itemToRemove)
         {
             Node *traversal = first;
-            Node *nextnext = NULL;
-            while(traversal->next != NULL)
+            Node *temp;
+            bool isRemoved = false;
+            while(traversal->next != NULL && !isRemoved)
             {
-                nextnext = traversal->next->next;
+
                 if(traversal->next->data == itemToRemove)
                 {
-                    traversal->next = NULL;
-                    traversal->next = nextnext;
-                    break;
+	                temp = traversal->next;
+                    traversal->next = temp->next;
+                    delete temp;
+                    temp=NULL;
+                    isRemoved = true;
                 }
                 else
                 {
                     traversal = traversal->next;
                 }
             }
-            delete traversal;
-            delete nextnext;
+            traversal=NULL;
             count--;
         }
         void RemoveFirst()
         {
-            Node *newFirst = first->next;
-            first = NULL;
-            first = newFirst;
-            delete newFirst;
+            Node *temp = first;
+            first = first->next;
+            delete temp;
+            temp=NULL;
             count--;
         }
         void RemoveLast()
         {
-            int index = 1;
             Node *traversal = first;
-            while(traversal->next != NULL)//keep in mind, 0 is also NULL
+            Node *temp = NULL;
+            bool isRemoved = false;
+            while(traversal->next != NULL && !isRemoved)//keep in mind, 0 is also NULL
             {
-                traversal = traversal->next;
-                index++;
-                if(index == count-1)
+
+                if(traversal->next == last)
                 {
-                    break;
+	                temp = last;
+	                last = traversal;
+	                delete temp;
+	                temp=NULL;
+	                isRemoved = true;
+
+                }
+                else 	
+                {
+		          traversal = traversal->next;
                 }
             }
-            last = traversal;
-            traversal->next = NULL;
-            delete traversal;
+            last->next = NULL;
+            traversal = NULL;
             count--;
 
         }
@@ -113,6 +123,7 @@ class LinkedList
                 traversal = traversal->next;
             }
             delete traversal;
+            traversal = nullptr;
         }
         bool isEmpty()
         {

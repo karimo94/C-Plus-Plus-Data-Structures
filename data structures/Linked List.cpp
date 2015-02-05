@@ -18,7 +18,7 @@ public:
         this->data = data;
         next = NULL;
     };
-    ~Node();//destructor
+    ~Node(void){};//destructor
 };
 
 class LinkedList
@@ -37,7 +37,7 @@ class LinkedList
             last = NULL;
             count = 0;
         };
-        ~LinkedList();//destructor
+        ~LinkedList(void){};//destructor
         void AddItem(int data)
         {
             Node *newItem = new Node(data);

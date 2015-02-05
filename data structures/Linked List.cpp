@@ -72,6 +72,8 @@ class LinkedList
                     traversal = traversal->next;
                 }
             }
+            delete traversal;
+            delete nextnext;
             count--;
         }
         void RemoveFirst()
@@ -79,6 +81,7 @@ class LinkedList
             Node *newFirst = first->next;
             first = NULL;
             first = newFirst;
+            delete newFirst;
             count--;
         }
         void RemoveLast()
@@ -96,6 +99,7 @@ class LinkedList
             }
             last = traversal;
             traversal->next = NULL;
+            delete traversal;
             count--;
 
         }
@@ -108,6 +112,7 @@ class LinkedList
                 cout<<"["<<traversal->data<<"] ";
                 traversal = traversal->next;
             }
+            delete traversal;
         }
         bool isEmpty()
         {

@@ -23,7 +23,7 @@ class BST
 			this->left = NULL;
 			this->right = NULL;
 		};
-		~Node();//destructor
+		~Node(void){};//destructor
 	};
 	private:
 	Node *root;
@@ -34,7 +34,7 @@ class BST
 		root = NULL;
 		itemCount = 0;
 	}
-	~BST();//destructor
+	~BST(void){};//destructor
 public:
 	void Add(int data)//Add recursively
 	{

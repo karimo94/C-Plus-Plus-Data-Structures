@@ -20,7 +20,7 @@ class Doubly_Linked_List
             this->next = NULL;
             this->previous = NULL;
         };
-        ~Node();//destructor
+        ~Node(void){};//destructor
     };
 private:
     Node* first;
@@ -31,7 +31,7 @@ public:
         first = NULL;
         last = NULL;
     }
-    ~Doubly_Linked_List();//destructor
+    ~Doubly_Linked_List(void){};//destructor
     void Add(int data)
     {
         Node* newItem = new Node(data);

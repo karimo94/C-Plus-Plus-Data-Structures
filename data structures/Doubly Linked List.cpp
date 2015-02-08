@@ -80,6 +80,7 @@ public:
             }
             else{current = current->next;}
         }
+        current = NULL;
         return isFound;
     }
     void Delete(int target)
@@ -95,12 +96,16 @@ public:
         else
         {
             Node* current = first;
+            Node* temp = NULL;//node to delete
             while(current != NULL)
             {
                 if(current->next->data == target)
                 {
+                    temp = current->next;
                     current->next->next->previous = current;
                     current->next = current->next->next;
+                    delete temp;
+                    temp = NULL;
                     break;
                 }
                 else
@@ -121,12 +126,18 @@ private:
     }
     void DeleteFirst()
     {
+        Node* temp = first;
         first = first->next;
+        delete temp;
+        temp = NULL;
         first->previous = NULL;
     }
     void DeleteLast()
     {
+        Node* temp = last;
         last = last->previous;
+        delete temp;
+        temp = NULL;
         last->next = NULL;
     }
 };

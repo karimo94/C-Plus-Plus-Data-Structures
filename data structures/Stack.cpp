@@ -59,6 +59,8 @@ class Stack
         {
             Node *removed = topOfStack;
             topOfStack = topOfStack->next;
+            delete removed;
+            removed = NULL;
             itemCount--;
             return removed->data;
         }

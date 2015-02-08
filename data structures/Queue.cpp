@@ -60,14 +60,17 @@ class Queue
         int Dequeue()
         {
             int valueToReturn;
+            Node *nodeToDelete = front;
             if(isEmpty())
             {
                 return 0;
             }
             else
             {
-                valueToReturn = front->data;
+                valueToReturn = nodeToDelete->data;
                 front = front->next;
+                delete nodeToDelete;
+                nodeToDelete = NULL;
                 return valueToReturn;
             }
         }

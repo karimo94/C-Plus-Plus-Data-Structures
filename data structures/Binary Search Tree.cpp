@@ -194,7 +194,8 @@ private:
             if(targetNode->left == NULL && targetNode->right == NULL)
             {
                 temp = root->data;
-                root = NULL;
+                delete targetNode;
+                targetNode = NULL;
                 return temp;
             }
             if(targetNode->left != NULL)
@@ -210,11 +211,21 @@ private:
                     while(current != NULL)
                     {
                         if(current->right->right == NULL)
-                        {root->data = current->right->data; break;}
+                        {
+                        	root->data = current->right->data; 
+                        	break;
+                        }
                         current = current->right;
                     }
-                    if(current->right != NULL){current->right = current->right->right;}
-                    else{current->right = NULL;}
+                    if(current->right != NULL)
+                    {
+                    	current->right = current->right->right;
+                    }
+                    else
+                    {
+                    	delete current->right;
+                    	current->right = NULL;
+                    }
                     return temp;//once we're done with deletion we return the value deleted
                 }
                 if(root->left->left == NULL)

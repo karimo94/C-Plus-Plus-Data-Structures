@@ -47,26 +47,6 @@ int main()
     cout<<"\nIs the stack empty? "<<s.IsEmpty();
     s.Display();
 
-    BST tree;
-	tree.Add(5);
-	tree.Add(3);
-	tree.Add(7);
-	tree.Add(2);
-	tree.Add(4);
-	tree.Add(6);
-	tree.Add(8);
-	cout<<endl;
-	cout<<"Tree..."<<endl;
-	tree.PrintInOrder();
-	cout<<endl;
-	tree.Find(8);
-	tree.Remove(2);
-	tree.PrintInOrder();
-	cout<<endl;
-	tree.Remove(77);
-	tree.Remove(5);
-	tree.PrintInOrder();
-	cout<<endl;
 
 	Queue q;
 	q.Enqueue(10);
@@ -85,6 +65,26 @@ int main()
     q.Dequeue();
     cout<<"After items dequeued..."<<endl;
     q.DisplayQueue();
+
+    BST tree;
+	tree.Add(5);
+	tree.Add(3);
+	tree.Add(7);
+	tree.Add(2);
+	tree.Add(4);
+	tree.Add(6);
+	tree.Add(8);
+	cout<<endl;
+	cout<<"Binary Search Tree..."<<endl;
+	tree.PrintInOrder();
+	cout<<endl;
+	tree.Find(8);
+	tree.Remove(2);
+	tree.PrintInOrder();
+	cout<<endl;
+	tree.Remove(77);
+	tree.Remove(5);
+	tree.PrintInOrder();
 
     cout<<endl;
     cout<<endl;
@@ -106,7 +106,6 @@ int main()
     cout<<endl;
     dll.PrintForward();
 
-    cin.get();
 
     return 0;
 }

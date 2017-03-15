@@ -24,27 +24,32 @@ class Doubly_Linked_List
     };
 private:
     Node* first;
-    Node* last;
 public:
     Doubly_Linked_List()
     {
         first = NULL;
-        last = NULL;
     }
-    ~Doubly_Linked_List(void){};//destructor
+    ~Doubly_Linked_List(void)
+    {
+        //destructor
+        RemoveAll();
+    };
     void Add(int data)
     {
         Node* newItem = new Node(data);
         if(IsEmpty() == true)
         {
             first = newItem;
-            last = newItem;
         }
         else
         {
-            newItem->previous = last;
-            last->next = newItem;
-            last = newItem;
+            Node *cur = first;
+            while(cur->next != NULL)
+            {
+                cur = cur->next;
+            }
+            cur->next = newItem;
+            newItem->previous = cur;
         }
     }
     void PrintForward()
@@ -59,8 +64,14 @@ public:
     }
     void PrintReverse()
     {
-        Node* current = last;
-        while(current != NULL)
+        Node* current = first;
+        //go to the last
+        while(current->next != NULL)
+        {
+            current = current->next;
+        }
+        //print in reverse
+        while(current->previous != NULL)
         {
             cout<<current->data<<" ";
             current = current->previous;
@@ -89,10 +100,6 @@ public:
         {
             DeleteFirst();
         }
-        if(target == last->data)
-        {
-            DeleteLast();
-        }
         else
         {
             Node* current = first;
@@ -101,11 +108,20 @@ public:
             {
                 if(current->next->data == target)
                 {
-                    temp = current->next;
-                    current->next->next->previous = current;
-                    current->next = current->next->next;
+                    temp = current->next;//set temp to the target
+                    //if we're not deleting the last thing...
+                    if(temp->next != NULL)
+                    {
+                        current->next->next->previous = current;
+                        current->next = temp->next;
+                    }
+                    else
+                    {
+                        current->next = NULL;
+                    }
                     delete temp;
                     temp = NULL;
+
                     break;
                 }
                 else
@@ -134,10 +150,32 @@ private:
     }
     void DeleteLast()
     {
-        Node* temp = last;
-        last = last->previous;
-        delete temp;
-        temp = NULL;
-        last->next = NULL;
+        Node *temp = first;
+        while(temp->next != NULL)
+        {
+            temp = temp->next;
+        }
+        temp = temp->previous;
+        Node *target = temp->next;
+        delete target;
+        target = NULL;
+        temp->next = NULL;
+    }
+    void RemoveAll()
+    {
+        RemoveAll(first);
+    }
+private:
+    void RemoveAll(Node *cur)
+    {
+        if(cur == NULL)
+        {
+            return;
+        }
+        else
+        {
+            RemoveAll(cur->next);
+            delete cur;
+        }
     }
 };

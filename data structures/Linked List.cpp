@@ -23,36 +23,37 @@ public:
 
 class LinkedList
 {
-//declare instances of Nodes here
 
         Node *first;//these also must be pointers
-        Node *last;
-        int count;
 
     public:
         LinkedList()//constructor for the LinkedList
         {
-            //initiliazation is needed (required)
+            //initiliazation is needed
             first = NULL;
-            last = NULL;
-            count = 0;
         };
-        ~LinkedList(void){};//destructor
+        ~LinkedList()
+        {
+            //destructor
+            RemoveAll();
+        };
         void AddItem(int data)
         {
             Node *newItem = new Node(data);
 
             if(first == NULL)
             {
-              first = newItem;
-              last = newItem;
+                first = newItem;
             }
             else
             {
-                last->next = newItem;
-                last = newItem;
+                Node *temp = first;
+                while(temp->next != NULL)
+                {
+                    temp = temp->next;
+                }
+                temp->next = newItem;
             }
-            count++;
         }
         void RemoveItem(int itemToRemove)
         {
@@ -76,42 +77,37 @@ class LinkedList
                 }
             }
             traversal=NULL;
-            count--;
+
         }
         void RemoveFirst()
         {
             Node *temp = first;
             first = first->next;
             delete temp;
-            temp=NULL;
-            count--;
+            temp = NULL;
+        }
+        void RemoveAll()
+        {
+            RemoveAll(first);
         }
         void RemoveLast()
         {
+            //if theres only 1 item in the list
+            if(first->next == NULL)
+            {
+                RemoveFirst();
+                return;
+            }
+
             Node *traversal = first;
             Node *temp = NULL;
-            bool isRemoved = false;
-            while(traversal->next != NULL && !isRemoved)//keep in mind, 0 is also NULL
+            while(traversal->next->next != NULL)
             {
-
-                if(traversal->next == last)
-                {
-	                temp = last;
-	                last = traversal;
-	                delete temp;
-	                temp=NULL;
-	                isRemoved = true;
-
-                }
-                else 	
-                {
-		          traversal = traversal->next;
-                }
+                traversal = traversal->next;
             }
-            last->next = NULL;
-            traversal = NULL;
-            count--;
-
+            temp = traversal->next;
+            delete temp;
+            temp = NULL;
         }
         void DisplayList()
         {
@@ -123,11 +119,11 @@ class LinkedList
                 traversal = traversal->next;
             }
             delete traversal;
-            traversal = nullptr;
+            traversal = NULL;
         }
         bool isEmpty()
         {
-            if(count < 1)
+            if(first == NULL)
             {
                 cout<<"List is empty";
                 return true;
@@ -136,6 +132,20 @@ class LinkedList
             {
                 cout<<"List is not empty";
                 return false;
+            }
+        }
+    private:
+        void RemoveAll(Node *cur)
+        {
+            if(cur == NULL)
+            {
+                return;
+            }
+            else
+            {
+                RemoveAll(cur->next);
+                delete cur;
+                cur = NULL;
             }
         }
 };

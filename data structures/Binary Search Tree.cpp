@@ -23,7 +23,9 @@ class BST
 			this->left = NULL;
 			this->right = NULL;
 		};
-		~Node(void){};//destructor
+		~Node(void)
+		{
+		};
 	};
 	private:
 	Node *root;
@@ -34,11 +36,51 @@ class BST
 		root = NULL;
 		itemCount = 0;
 	}
-	~BST(void){};//destructor
-public:
-	void Add(int data)//Add recursively
+	~BST(void)
 	{
-		AddRecursively(data, root);
+        FlushAll(root);
+	};
+
+public:
+	void Add(int data)
+	{
+        Node *nObj = new Node(data);
+        if(root == NULL)
+        {
+            root = nObj;
+            return;
+        }
+        else
+        {
+            Node *cur = root;
+            while(cur != NULL)
+            {
+                if(data < cur->data)
+                {
+                    if(cur->left == NULL)
+                    {
+                        cur->left = nObj;
+                        break;
+                    }
+                    if(cur->left != NULL)
+                    {
+                        cur = cur->left;
+                    }
+                }
+                if(data > cur->data)
+                {
+                    if(cur->right == NULL)
+                    {
+                        cur->right = nObj;
+                        break;
+                    }
+                    if(cur->right != NULL)
+                    {
+                        cur = cur->right;
+                    }
+                }
+            }
+        }
 		itemCount++;
 	}
 	void PrintInOrder()//print recursively
@@ -77,6 +119,17 @@ public:
             return false;
         }
 	}
+    bool isEmpty()
+	{
+		if(root == NULL)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	};
 private:
 	void PrintInOrder(Node *current)//a private recursive print method
 	{
@@ -91,54 +144,7 @@ private:
 			PrintInOrder(current->right);
 		}
 	};
-	Node* AddRecursively(int data, Node* traversal)//we have a private recursive add method
-	{
-		Node* newItem = new Node(data);
-		if(isEmpty())
-		{
-			root = newItem;
-		}
-		else
-		{
-			if(newItem->data < traversal->data)
-			{
-				if(traversal->left == NULL)
-				{
-					traversal->left = newItem;
-				}
-				else
-				{
-					return AddRecursively(data, traversal->left);
-				}
-			}
-			if (newItem->data > traversal->data)
-			{
-				if(traversal->right == NULL)
-				{
-					traversal->right = newItem;
-				}
-				else
-				{
-				    return AddRecursively(data, traversal->right);
-				}
-			}
-			else
-			{
-				return NULL;
-			}
-		}
-	};
-	bool isEmpty()
-	{
-		if(root == NULL)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	};
+
 	bool FindTarget(int target)
 	{/*this private method will print whether a vlaue was found or not and return true or false*/
 	    bool isFound = false;
@@ -212,7 +218,7 @@ private:
                     {
                         if(current->right->right == NULL)
                         {
-                        	root->data = current->right->data; 
+                        	root->data = current->right->data;
                         	break;
                         }
                         current = current->right;
@@ -360,5 +366,19 @@ private:
             }
         }
         return parent;
+    }
+    void FlushAll(Node *cur)
+    {
+        if(cur == NULL)
+        {
+            return;
+        }
+        else
+        {
+            FlushAll(cur->left);
+            FlushAll(cur->right);
+            delete cur;
+            cur = NULL;
+        }
     }
 };

@@ -30,7 +30,10 @@ class Queue
             front = NULL;
             end = NULL;
         }
-        ~Queue(void){};//destructor
+        ~Queue(void)
+        {
+            RemoveAll();
+        };
         bool isEmpty()
         {
             if(front == NULL)
@@ -81,6 +84,27 @@ class Queue
             {
                 cout<<current->data<<" ";
                 current = current->next;
+            }
+        }
+        void RemoveAll()
+        {
+            if(!isEmpty())
+            {
+                RemoveAll(front);
+                end = NULL;
+            }
+        }
+    private:
+        void RemoveAll(Node *cur)
+        {
+            if(cur->next == NULL)
+            {
+                return;
+            }
+            else
+            {
+                RemoveAll(cur->next);
+                delete cur;
             }
         }
 };

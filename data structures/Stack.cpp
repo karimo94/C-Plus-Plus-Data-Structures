@@ -33,7 +33,10 @@ class Stack
         topOfStack = NULL;
         itemCount = 0;
     }
-    ~Stack(void){};//destructor
+    ~Stack(void)
+    {
+        RemoveAll();
+    };
     void Push(int data)
     {
         Node *newObject = new Node(data);
@@ -58,11 +61,12 @@ class Stack
         else
         {
             Node *removed = topOfStack;
+            int removedData = removed->data;
             topOfStack = topOfStack->next;
             delete removed;
             removed = NULL;
             itemCount--;
-            return removed->data;
+            return removedData;
         }
     }
     void Display()
@@ -90,10 +94,29 @@ class Stack
     {
         if(topOfStack == NULL)
         {
-            cout<<"Yes ";
             return true;
         }
-        else{return false;}
+        else
+        {
+            return false;
+        }
+    }
+    void RemoveAll()
+    {
+        RemoveAll(topOfStack);
+    }
+private:
+    void RemoveAll(Node *cur)
+    {
+        if(cur == NULL)
+        {
+            return;
+        }
+        else
+        {
+            RemoveAll(cur->next);
+            delete cur;
+        }
     }
 };
 

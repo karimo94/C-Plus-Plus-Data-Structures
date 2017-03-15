@@ -1,5 +1,5 @@
 Karim Oumghar 
-June 2014
+Updated as of 2017
 Here are all the .cpp source files for the following:
 
 -LinkedList
@@ -8,6 +8,6 @@ Here are all the .cpp source files for the following:
 -Queue
 -Binary Search Tree
 
-Please also open main.cpp as it contains the tests for the data structures and includes "int main()"
+Please also open main.cpp as you can run the data structures from "int main()"
 
 Thanks...

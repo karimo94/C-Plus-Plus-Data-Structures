@@ -164,6 +164,8 @@ private:
     void RemoveAll()
     {
         RemoveAll(first);
+        first = NULL;
+        
     }
 private:
     void RemoveAll(Node *cur)

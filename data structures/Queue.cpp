@@ -97,7 +97,7 @@ class Queue
     private:
         void RemoveAll(Node *cur)
         {
-            if(cur->next == NULL)
+            if(cur == NULL)
             {
                 return;
             }

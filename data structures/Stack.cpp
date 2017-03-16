@@ -104,6 +104,7 @@ class Stack
     void RemoveAll()
     {
         RemoveAll(topOfStack);
+        topOfStack = NULL;
     }
 private:
     void RemoveAll(Node *cur)

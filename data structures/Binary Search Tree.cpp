@@ -24,7 +24,7 @@ class BST
 			this->right = NULL;
 		};
 		~Node(void)
-		{
+        {
 		};
 	};
 	private:
@@ -39,6 +39,7 @@ class BST
 	~BST(void)
 	{
         FlushAll(root);
+        root = NULL;
 	};
 
 public:

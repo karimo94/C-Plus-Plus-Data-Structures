@@ -36,6 +36,7 @@ class LinkedList
         {
             //destructor
             RemoveAll();
+
         };
         void AddItem(int data)
         {
@@ -44,6 +45,7 @@ class LinkedList
             if(first == NULL)
             {
                 first = newItem;
+                return;
             }
             else
             {
@@ -53,6 +55,7 @@ class LinkedList
                     temp = temp->next;
                 }
                 temp->next = newItem;
+                return;
             }
         }
         void RemoveItem(int itemToRemove)
@@ -70,13 +73,13 @@ class LinkedList
                     delete temp;
                     temp=NULL;
                     isRemoved = true;
+                    break;
                 }
                 else
                 {
                     traversal = traversal->next;
                 }
             }
-            traversal=NULL;
 
         }
         void RemoveFirst()
@@ -89,6 +92,7 @@ class LinkedList
         void RemoveAll()
         {
             RemoveAll(first);
+            first = NULL;
         }
         void RemoveLast()
         {
@@ -108,8 +112,9 @@ class LinkedList
             temp = traversal->next;
             delete temp;
             temp = NULL;
+            traversal->next = NULL;
         }
-        void DisplayList()
+        void DisplayList() const
         {
             cout<<endl;
             Node *traversal = first;
@@ -118,10 +123,9 @@ class LinkedList
                 cout<<"["<<traversal->data<<"] ";
                 traversal = traversal->next;
             }
-            delete traversal;
             traversal = NULL;
         }
-        bool isEmpty()
+        bool isEmpty() const
         {
             if(first == NULL)
             {
@@ -135,17 +139,16 @@ class LinkedList
             }
         }
     private:
-        void RemoveAll(Node *cur)
+        void RemoveAll(Node *current)
         {
-            if(cur == NULL)
+            if(current == NULL)
             {
                 return;
             }
             else
             {
-                RemoveAll(cur->next);
-                delete cur;
-                cur = NULL;
+                RemoveAll(current->next);
+                delete current;
             }
         }
 };
